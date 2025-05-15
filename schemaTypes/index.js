@@ -1,3 +1,4 @@
-import projet from './projet'
+import creation from './creation'
+import creationSection from './creationSection'
 
-export const schemaTypes = [projet]
+export const schemaTypes = [creation, creationSection]
