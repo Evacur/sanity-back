@@ -1,13 +1,13 @@
 import { defineType, defineField } from 'sanity'
 
 export default defineType({
-  name: 'creation',
-  title: 'CréationPage',
+  name: 'collaboration',
+  title: 'CollaborationPage',
   type: 'document',
   fields: [
     defineField({
-      name: 'image',
-      title: 'Image',
+      name: 'banner',
+      title: 'Image de couverture',
       type: 'image',
       options: { hotspot: true },
     }),
@@ -17,16 +17,26 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'date',
-      title: 'Date',
+      name: 'annee',
+      title: 'Année',
       type: 'date',
       options: {
-        dateFormat: 'YYYY-MM-DD',
+        dateFormat: 'YYYY',
       },
     }),
     defineField({
-      name: 'category',
-      title: 'Catégorie',
+      name: 'lieu',
+      title: 'Lieu',
+      type: 'string',
+    }),
+    defineField({
+      name: 'prestation',
+      title: 'Prestation',
+      type: 'string',
+    }),
+    defineField({
+      name: 'surface',
+      title: 'Surface',
       type: 'string',
     }),
     defineField({
