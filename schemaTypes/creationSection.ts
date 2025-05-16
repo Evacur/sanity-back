@@ -5,12 +5,7 @@ export default defineType({
   title: 'Section de création',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Titre',
-      type: 'string',
-    }),
-    defineField({
+     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -18,6 +13,11 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+    }),
+    defineField({
+      name: 'title',
+      title: 'Titre',
+      type: 'string',
     }),
     defineField({
       name: 'description',

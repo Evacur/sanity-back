@@ -6,6 +6,16 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'banner',
       title: 'Image de couverture',
       type: 'image',
@@ -15,6 +25,7 @@ export default defineType({
       name: 'title',
       title: 'Titre',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'annee',
@@ -40,10 +51,37 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'section',
-      title: 'Section liée',
-      type: 'reference',
-      to: [{ type: 'creationSection' }],
+      name: 'video',
+      title: 'Vidéo',
+      type: 'file',
+      options: {
+        accept: 'video/*',
+      },
+    }),
+    defineField({
+      name: 'images',
+      title: 'Galerie d’images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      validation: (Rule) => Rule.max(12),
+    }),
+    defineField({
+      name: 'content',
+      title: 'Contenu textuel',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'heading',
+          title: 'Titre',
+          type: 'string',
+        }),
+        defineField({
+          name: 'body',
+          title: 'Texte',
+          type: 'array',
+          of: [{ type: 'block' }],
+        }),
+      ],
     }),
   ],
 })
