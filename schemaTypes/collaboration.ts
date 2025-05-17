@@ -20,6 +20,7 @@ export default defineType({
       title: 'Image de couverture',
       type: 'image',
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'title',
