@@ -52,36 +52,68 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'video',
-      title: 'Vidéo',
-      type: 'file',
-      options: {
-        accept: 'video/*',
-      },
-    }),
-    defineField({
-      name: 'images',
-      title: 'Galerie d’images',
+      name: 'sections',
+      title: 'Contenu du projet',
       type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
-      validation: (Rule) => Rule.max(12),
-    }),
-    defineField({
-      name: 'content',
-      title: 'Contenu textuel',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'heading',
-          title: 'Titre',
-          type: 'string',
-        }),
-        defineField({
-          name: 'body',
-          title: 'Texte',
-          type: 'array',
-          of: [{ type: 'block' }],
-        }),
+      of: [
+        {
+          type: 'object',
+          name: 'videoBlock',
+          title: 'Vidéo plein écran',
+          fields: [
+            {
+              name: 'video',
+              type: 'file',
+              title: 'Vidéo',
+              options: { accept: 'video/mp4' },
+            },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'imageDuo',
+          title: '2 images côte à côte',
+          fields: [
+            { name: 'leftImage', type: 'image', title: 'Image gauche', options: { hotspot: true } },
+            { name: 'rightImage', type: 'image', title: 'Image droite', options: { hotspot: true } },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'imageText',
+          title: 'Image + Texte',
+          fields: [
+            { name: 'image', type: 'image', title: 'Image', options: { hotspot: true } },
+            {
+              name: 'imagePosition',
+              type: 'string',
+              title: 'Position de l’image',
+              options: {
+                list: [
+                  { title: 'Gauche', value: 'left' },
+                  { title: 'Droite', value: 'right' },
+                ],
+              },
+              initialValue: 'left',
+            },
+            {
+              name: 'text',
+              type: 'array',
+              title: 'Texte',
+              of: [{ type: 'block' }],
+            },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'imageTriple',
+          title: '1 image droite + 2 images à gauche',
+          fields: [
+            { name: 'topImage', type: 'image', title: 'Image en haut à gauche', options: { hotspot: true } },
+            { name: 'bottomImage', type: 'image', title: 'Image en bas à gauche', options: { hotspot: true } },
+            { name: 'rightImage', type: 'image', title: 'Image à droite', options: { hotspot: true } },
+          ],
+        },
       ],
     }),
   ],
