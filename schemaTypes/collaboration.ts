@@ -97,6 +97,11 @@ export default defineType({
               initialValue: 'left',
             },
             {
+              name: 'title',
+              type: 'string',
+              title: 'Titre',
+            },
+            {
               name: 'text',
               type: 'array',
               title: 'Texte',
