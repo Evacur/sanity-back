@@ -51,6 +51,7 @@ export default defineType({
       title: 'Surface',
       type: 'string',
     }),
+    
     defineField({
       name: 'sections',
       title: 'Contenu du projet',
