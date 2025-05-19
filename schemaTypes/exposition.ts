@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity'
 
 export default defineType({
-  name: 'collaboration',
-  title: 'CollaborationPage',
+  name: 'exposition',
+  title: 'ExpositionPage',
   type: 'document',
   fields: [
     defineField({
@@ -29,12 +29,9 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'annee',
-      title: 'Année',
-      type: 'date',
-      options: {
-        dateFormat: 'YYYY',
-      },
+      name: 'date',
+      title: 'Date',
+      type: 'string',
     }),
     defineField({
       name: 'lieu',
@@ -42,23 +39,13 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'prestation',
-      title: 'Prestation',
-      type: 'string',
-    }),
-    defineField({
-      name: 'surface',
-      title: 'Surface',
-      type: 'string',
-    }),
-    defineField({
-      name: 'client',
-      title: 'Client',
+      name: 'organisateur',
+      title: 'Organisateur',
       type: 'string',
     }),
     defineField({
       name: 'sections',
-      title: 'Contenu du projet',
+      title: "Contenu de l'exposition",
       type: 'array',
       of: [
         {
@@ -122,6 +109,24 @@ export default defineType({
             { name: 'topImage', type: 'image', title: 'Image en haut à gauche', options: { hotspot: true } },
             { name: 'bottomImage', type: 'image', title: 'Image en bas à gauche', options: { hotspot: true } },
             { name: 'rightImage', type: 'image', title: 'Image à droite', options: { hotspot: true } },
+          ],
+        },
+        {
+          type: 'object',
+          name: 'texteSimple',
+          title: 'Texte simple',
+          fields: [
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Titre',
+            },
+            {
+              name: 'text',
+              type: 'array',
+              title: 'Texte',
+              of: [{ type: 'block' }],
+            },
           ],
         },
       ],
