@@ -5,11 +5,14 @@ export default defineType({
   title: 'CréationPage',
   type: 'document',
   fields: [
-    defineField({
+   defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
-      options: { hotspot: true },
+      options: {
+        hotspot: true,
+        accept: 'image/png, image/jpeg, image/webp, image/heic'
+      },
     }),
     defineField({
       name: 'title',

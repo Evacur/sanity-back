@@ -19,7 +19,10 @@ export default defineType({
       name: 'banner',
       title: 'Image de couverture',
       type: 'image',
-      options: { hotspot: true },
+      options: {
+        hotspot: true,
+        accept: 'image/png, image/jpeg, image/webp, image/heic'
+      },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -92,8 +95,24 @@ export default defineType({
           name: 'imageDuo',
           title: '2 images côte à côte',
           fields: [
-            defineField({ name: 'leftImage', type: 'image', title: 'Image gauche', options: { hotspot: true } }),
-            defineField({ name: 'rightImage', type: 'image', title: 'Image droite', options: { hotspot: true } }),
+            defineField({
+              name: 'leftImage',
+              type: 'image',
+              title: 'Image gauche',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
+            defineField({
+              name: 'rightImage',
+              type: 'image',
+              title: 'Image droite',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
           ],
           preview: {
             select: {
@@ -113,7 +132,15 @@ export default defineType({
           name: 'imageText',
           title: 'Image + Texte',
           fields: [
-            defineField({ name: 'image', type: 'image', title: 'Image', options: { hotspot: true } }),
+            defineField({
+              name: 'image',
+              type: 'image',
+              title: 'Image',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
             defineField({
               name: 'imagePosition',
               type: 'string',
@@ -153,9 +180,33 @@ export default defineType({
           name: 'imageTriple',
           title: '1 image droite + 2 images à gauche',
           fields: [
-            defineField({ name: 'topImage', type: 'image', title: 'Image en haut à gauche', options: { hotspot: true } }),
-            defineField({ name: 'bottomImage', type: 'image', title: 'Image en bas à gauche', options: { hotspot: true } }),
-            defineField({ name: 'rightImage', type: 'image', title: 'Image à droite', options: { hotspot: true } }),
+            defineField({
+              name: 'topImage',
+              type: 'image',
+              title: 'Image en haut à gauche',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
+            defineField({
+              name: 'bottomImage',
+              type: 'image',
+              title: 'Image en bas à gauche',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
+            defineField({
+              name: 'rightImage',
+              type: 'image',
+              title: 'Image à droite',
+              options: {
+                hotspot: true,
+                accept: 'image/png, image/jpeg, image/webp, image/heic'
+              },
+            }),
           ],
           preview: {
             select: {

@@ -30,6 +30,7 @@ export default defineType({
       type: 'image',
       options: {
         hotspot: true,
+        accept: 'image/png, image/jpeg, image/webp, image/heic'
       },
     }),
     defineField({
