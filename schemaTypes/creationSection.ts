@@ -5,7 +5,7 @@ export default defineType({
   title: 'Section de création',
   type: 'document',
   fields: [
-     defineField({
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -38,4 +38,19 @@ export default defineType({
       type: 'number',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image',
+      description: 'description',
+      order: 'order',
+    },
+    prepare({ title, media, description, order }) {
+      return {
+        title: title || 'Sans titre',
+        subtitle: `${description || 'Pas de description'}${order !== undefined ? ` (Ordre: ${order})` : ''}`,
+        media
+      }
+    }
+  }
 })

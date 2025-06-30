@@ -36,4 +36,19 @@ export default defineType({
       to: [{ type: 'creationSection' }],
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'image',
+      date: 'date',
+      category: 'category'
+    },
+    prepare({ title, media, date, category }) {
+      return {
+        title: title || 'Sans titre',
+        subtitle: `${category || 'Sans catégorie'}${date ? ` - ${date}` : ''}`,
+        media
+      }
+    }
+  }
 })
