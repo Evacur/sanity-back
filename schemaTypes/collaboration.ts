@@ -70,7 +70,9 @@ export default defineType({
               name: 'video',
               type: 'file',
               title: 'Vidéo',
-              options: { accept: 'video/mp4' },
+              options: {
+                accept: 'video/*'
+              }
             },
           ],
         },
