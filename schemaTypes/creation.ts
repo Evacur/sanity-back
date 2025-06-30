@@ -25,12 +25,12 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'title',
-      title: 'technique',
+      name: 'technique',
+      title: 'Technique',
       type: 'string',
     }),
     defineField({
-      name: 'title',
+      name: 'format',
       title: 'Format',
       type: 'string',
     }),
@@ -46,12 +46,13 @@ export default defineType({
       title: 'title',
       media: 'image',
       date: 'date',
-      category: 'category'
+      technique: 'technique',
+      format: 'format',
     },
-    prepare({ title, media, date, category }) {
+    prepare({ title, media, date, technique, format }) {
       return {
         title: title || 'Sans titre',
-        subtitle: `${category || 'Sans catégorie'}${date ? ` - ${date}` : ''}`,
+        subtitle: `${format || ''}${technique ? `, ${technique}` : ''}${date ? `, ${date}` : ''}`,
         media
       }
     }
