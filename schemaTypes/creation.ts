@@ -21,12 +21,17 @@ export default defineType({
       title: 'Date',
       type: 'date',
       options: {
-        dateFormat: 'YYYY-MM-DD',
+        dateFormat: 'YYYY',
       },
     }),
     defineField({
-      name: 'category',
-      title: 'Catégorie',
+      name: 'title',
+      title: 'technique',
+      type: 'string',
+    }),
+    defineField({
+      name: 'title',
+      title: 'Format',
       type: 'string',
     }),
     defineField({
