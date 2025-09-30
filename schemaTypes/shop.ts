@@ -32,6 +32,7 @@ export default defineType({
       title: 'Carrousel d’images',
       type: 'array',
       of: [{ type: 'image' }],
+      validation: (Rule) => Rule.max(4),
     }),
     defineField({
       name: 'format',
