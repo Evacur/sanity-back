@@ -59,6 +59,12 @@ export default defineType({
       title: 'Lien Stripe',
       type: 'url',
     }),
+    defineField({
+      name: 'vendu',
+      title: 'Vendu',
+      type: 'boolean',
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {
