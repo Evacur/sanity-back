@@ -32,6 +32,7 @@ export default defineType({
       title: 'Carrousel d’images',
       type: 'array',
       of: [{ type: 'image' }],
+      validation: (Rule) => Rule.max(4),
     }),
     defineField({
       name: 'format',
@@ -57,6 +58,12 @@ export default defineType({
       name: 'stripeUrl',
       title: 'Lien Stripe',
       type: 'url',
+    }),
+    defineField({
+      name: 'vendu',
+      title: 'Vendu',
+      type: 'boolean',
+      initialValue: false,
     }),
   ],
   preview: {
